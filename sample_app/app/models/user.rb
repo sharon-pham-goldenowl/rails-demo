@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_save { self.email = email.downcase }
+  before_save   :downcase_email
 
   before_create :create_activation_digest
 
